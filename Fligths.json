@@ -1,5 +1,4 @@
-# Assignment-3
-Flying tracker app
+
 {
   "airports": [
     { "iataCode": "CPH", "name": "Copenhagen Airport", "city": "Copenhagen", "country": "Denmark", "latitude": 55.6179, "longitude": 12.6560 },
