@@ -1422,11 +1422,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\andre\\Documents\\UNIVERSIDAD\\4ºSEMESTTRE\\AOP\\Assignment3\\Assignment3.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
       "projectName": "Assignment3",
-      "projectPath": "C:\\Users\\andre\\Documents\\UNIVERSIDAD\\4ºSEMESTTRE\\AOP\\Assignment3\\Assignment3.csproj",
+      "projectPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\andre\\Documents\\UNIVERSIDAD\\4ºSEMESTTRE\\AOP\\Assignment3\\obj\\",
+      "outputPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1780,10 +1780,14 @@
   },
   "logs": [
     {
-      "code": "NU1900",
+      "code": "NU1903",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Error occurred while getting package vulnerability data: Unable to load the service index for source https://api.nuget.org/v3/index.json."
+      "message": "Package 'Tmds.DBus.Protocol' 0.21.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-xrw6-gwf8-vvr9",
+      "libraryId": "Tmds.DBus.Protocol",
+      "targetGraphs": [
+        "net10.0"
+      ]
     }
   ]
 }
