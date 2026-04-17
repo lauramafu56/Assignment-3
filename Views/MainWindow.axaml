@@ -1,12 +1,13 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Assignment3.ViewModels"
+<Window xmlns="https://github.
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Assignment3.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/acom/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Assignment3.ViewModels"
+        xmlns:views="using:Assignment3.Views"valonia-logo.ico"
         Title="Assignment3">
 
     <Design.DataContext>
@@ -15,7 +16,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     <StackPanel>
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10"/>
-    
+        <ContentControl Content="{Binding CurrentView}"/>
+        <Button Content="Next" Command="{Binding NextView}"/>
     </StackPanel>
 </Window>
