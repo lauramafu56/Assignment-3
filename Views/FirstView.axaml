@@ -7,5 +7,6 @@
              x:Class="Assignment3.Views.FirstView"
              x:DataType="vm:FirstViewModel">
 
-  Welcome to Avalonia!1lkkjbuubu
+ <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
+
 </UserControl>
