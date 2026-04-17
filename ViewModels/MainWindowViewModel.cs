@@ -2,5 +2,5 @@
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting { get; } = "Welcome to our Assignment3!";
+    public string Greeting { get; } = "OUR MAP WITH FLIGHTS";
 }
