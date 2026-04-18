@@ -33,5 +33,14 @@ public partial class FirstViewModel: ObservableObject
         
         Map.Layers.Add(airportLayer);
         Map.Layers.Add(routeLayer);
+/*
+        var line = new LineString(new[]
+        {
+            new MPoint(originLongitude, originLatitude),
+            new MPoint(destinationLongitude, destinationLatitude)
+        });
+        var routeFeature = new LineStringFeature(line);
+        
+        routeLayer.Features.Add(routeFeature);*/
     }
 }

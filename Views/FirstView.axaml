@@ -7,8 +7,14 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Assignment3.Views.FirstView"
              x:DataType="vm:FirstViewModel">
- <Grid Height="450">
- <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
- <mapsui:MapControl  Map="{Binding Map}"/>
+
+             
+ <Grid RowDefinitions="Auto,*">
+    <StackPanel Grid.Row="0">
+        <!-- botones, búsqueda, etc -->
+         <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
+    </StackPanel>
+ 
+ <mapsui:MapControl Grid.Row="1" Map="{Binding Map}" />
 </Grid>
 </UserControl>
