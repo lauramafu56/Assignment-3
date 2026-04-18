@@ -17,5 +17,5 @@
     <StackPanel>
         <ContentControl Content="{Binding CurrentView}"/>
         <Button Content="Next" Command="{Binding NextView}" Margin= "20"/>
-    </StackPanel>
+</StackPanel>
 </Window>
