@@ -50,6 +50,7 @@ public class Flights
         public string AircraftType { get; set; }
         public string Status { get; set; }
      
+    
      public Flights (string flightNumber, string airlineName, string departureAirport, string airlineCode, string arrivalAirport, DateTime scheduledDeparture, DateTime scheduledArrival, string aircraftType, string status)
      {
          FlightNumber = flightNumber;
