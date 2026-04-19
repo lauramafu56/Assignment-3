@@ -14,7 +14,7 @@ public class AirportTakeData
     public List<Airport> AirportList { get; set; }= new ();//List<Here goes lo cosa en singular de lo que quieres que se cree una lista> Name_of_the_list { get; set; }= new ();
     public AirportTakeData()
     {
-        LoadAirports();
+       // LoadAirports();
     }
 
     private void LoadAirports()
