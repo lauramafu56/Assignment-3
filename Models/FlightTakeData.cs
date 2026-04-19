@@ -10,18 +10,20 @@ namespace Assignment3;
 
 public class FlightTakeData
 {
+    public List<Flights> Flights { get; set; } = new();
     //public List<Flights> FlightsList { get; set; }= new ();//List<Here goes lo cosa en singular de lo que quieres que se cree una lista> Name_of_the_list { get; set; }= new ();
-    public FlightTakeData()
+   /* public FlightTakeData()
     {
         //LoadFlights();
     }
-
+    public List<Flights> Flights { get; set; } = new();*/
+/*
     public List<Flights> LoadFlights(string path)
     {
         var json = File.ReadAllText(path);
         return JsonSerializer.Deserialize<List<Flights>>(json);
     }
-
+*/
  /*public void LoadFlights()
     {
 
@@ -38,28 +40,27 @@ public class FlightTakeData
 }
 public class Flights
 {
-    
-    public string FLIGHTNUMBER { get; set;}= string.Empty;
-    public string ARLINENAME {get; set;}= string.Empty;
-     public string DEPARTUREAIRPORT {get; set;}= string.Empty;
-     public string AIRLINECODE{get; set;}= string.Empty;
-     public string ARRIVALAIRPORT {get; set;}= string.Empty;
-     public string SCHEDULEDDEPARTURE {get; set;}= string.Empty;
-     public string SCHEDULEDARRIVAL {get; set;}= string.Empty;
-     public string AIRCRAFTTYPE {get; set;}= string.Empty;
-     public string STATUS {get; set;}= string.Empty;
+    public string FlightNumber { get; set; }
+        public string AirlineName { get; set; }
+        public string AirlineCode { get; set; }
+        public string DepartureAirport { get; set; }
+        public string ArrivalAirport { get; set; }
+        public DateTime ScheduledDeparture { get; set; } // C# converts automatically  text to date (fecha)
+        public DateTime ScheduledArrival { get; set; }
+        public string AircraftType { get; set; }
+        public string Status { get; set; }
      
-     public Flights (string flightNumber, string airlineName, string departureAirport, string airlineCode, string arrivalAirport, string scheduledDeparture, string scheduledArrival, string aircraftType, string status)
+     public Flights (string flightNumber, string airlineName, string departureAirport, string airlineCode, string arrivalAirport, DateTime scheduledDeparture, DateTime scheduledArrival, string aircraftType, string status)
      {
-         FLIGHTNUMBER = flightNumber;
-         ARLINENAME = airlineName;
-         DEPARTUREAIRPORT = departureAirport;
-         AIRLINECODE = airlineCode;
-         ARRIVALAIRPORT = arrivalAirport;
-         SCHEDULEDDEPARTURE = scheduledDeparture;
-         SCHEDULEDARRIVAL = scheduledArrival;
-         AIRCRAFTTYPE = aircraftType;
-         STATUS = status;
+         FlightNumber = flightNumber;
+        AirlineName = airlineName;
+         DepartureAirport = departureAirport;
+         AirlineCode = airlineCode;
+         ArrivalAirport = arrivalAirport;
+         ScheduledDeparture = scheduledDeparture;
+         ScheduledArrival  = scheduledArrival;
+         AircraftType = aircraftType;
+         Status = status;
      }
 
 }
