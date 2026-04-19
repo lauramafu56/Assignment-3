@@ -8,6 +8,6 @@
              x:DataType="vm:SecondViewModel">
   <StackPanel Margin="20">
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
-    <ComboBox Margin="10" Width="300" ></ComboBox>
+    <ComboBox Margin="10" Width="300"></ComboBox>
   </StackPanel >
 </UserControl>
