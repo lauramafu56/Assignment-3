@@ -44,7 +44,7 @@ public partial class FirstViewModel: ObservableObject
     var flightsFromOrigin = allFlights.Where(f => f.DepartureAirport == originIata).ToList();
 
     // CORRECCIÓN: Usamos una capa de memoria (MemoryLayer)
-    var layer = new MemoryLayer { Name = "Rutas" };
+    var layer = new MemoryLayer { Name = "Routes" };
     var features = new List<GeometryFeature>(); // Lista temporal de dibujos
 
     var startPoint = SphericalMercator.FromLonLat(originAirp.Longitude, originAirp.Latitude);
@@ -58,8 +58,8 @@ public partial class FirstViewModel: ObservableObject
 
         // Creamos la línea
         var line = new LineString(new[] { 
-            new Coordinate(startPoint.X, startPoint.Y), 
-            new Coordinate(endPoint.X, endPoint.Y) 
+        new Coordinate(startPoint), 
+        new Coordinate(endPoint) 
         });
 
         // Añadimos la línea a nuestra lista de dibujos
@@ -70,8 +70,8 @@ public partial class FirstViewModel: ObservableObject
     layer.Features = features;
 
     // Añadimos la capa al mapa
-    _mymap.Layers.Add(layer);
-    _mymap.Refresh();
+    Mymap.Layers.Add(layer);
+    Mymap.Refresh();
 }
 
   
