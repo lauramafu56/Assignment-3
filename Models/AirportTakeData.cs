@@ -38,7 +38,7 @@ public class Airport
      public string COUNTRY{get; set;}= string.Empty;
      public double LATITUDE {get; set;}= 0.0;
      public double LONGITUDE {get; set;}= 0.0;
-    public Airport(string iataCode, string name, string city, string country, double latitude, double longitude)
+    public Airport(string iataCode, string name, string city, string country, double latitude, double longitude)//this is a constructor
     {
         IATACODE = iataCode;
         NAME = name;
