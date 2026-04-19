@@ -23,9 +23,7 @@ public partial class FirstViewModel: ObservableObject
     //private readonly List<Airport> _airports;
     public FirstViewModel()
     {
-        var dataService = new FlightTakeData();
-        _flights = dataService.LoadFlights("flights.json");
-       // _airports = dataService.LoadAirports("Data/airports.json");
+              // _airports = dataService.LoadAirports("Data/airports.json");
         // Create the map
         Map = new Map();
        
