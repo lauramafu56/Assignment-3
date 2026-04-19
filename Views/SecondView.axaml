@@ -8,6 +8,15 @@
              x:DataType="vm:SecondViewModel">
   <StackPanel Margin="20">
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
-    <ComboBox Margin="10" Width="300"></ComboBox>
-  </StackPanel >
+    <ComboBox Margin="10" Width="300" ItemsSource="{Binding VisibleAirports}">
+      <ComboBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding IataCode}" FontWeight="Bold" Margin="5"/>
+            <TextBlock Text="{Binding Name}" Margin="5"/>
+          </StackPanel>
+        </DataTemplate>  
+        </ComboBox.ItemTemplate>
+    </ComboBox>
+  </StackPanel>
 </UserControl>

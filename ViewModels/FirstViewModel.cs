@@ -78,8 +78,7 @@ public partial class FirstViewModel: ObservableObject
 
     public FirstViewModel()
     {
-        
-       Initialize();
+              // _airports = dataService.LoadAirports("Data/airports.json");
         // Create the map
         _mymap = new Map();
        
