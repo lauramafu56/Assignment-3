@@ -26,16 +26,7 @@ public partial class FirstViewModel: ObservableObject
     
       [ObservableProperty]
     private Map _mymap;
-    public void Initialize() 
-    {
-        var data = LoadData(); 
     
-        // copy the flights from JSON to our observable list
-        foreach (var f in data.Flights)
-        {
-            VisibleFlights.Add(f);
-        }
-    }
 
     [RelayCommand]
     public void ShowRoutes(string? originIata)
@@ -90,6 +81,7 @@ public partial class FirstViewModel: ObservableObject
 
     
 }
+/*
     private void LoadAll()
     {
         var data = LoadData();
@@ -104,18 +96,20 @@ public partial class FirstViewModel: ObservableObject
             VisibleFlights.Add(f);
         }
         
-    }
+    }*/
   
 
-    public FirstViewModel()
+    public FirstViewModel(List<Airport> airports, List<Flights> flights)
     {
+        this.allAirports = airports;
+        this.allFlights = flights;
               // _airports = dataService.LoadAirports("Data/airports.json");
         // 1. Inicializamos la propiedad pública para que el Toolkit lance la notificación
         Mymap = new Map(); 
         Mymap.Layers.Add(OpenStreetMap.CreateTileLayer());
 
         // 2. ¡MUY IMPORTANTE! Llamamos a la carga de datos aquí
-        LoadAll();
+        //LoadAll();
         // Create the map
         
   
@@ -148,9 +142,9 @@ public partial class FirstViewModel: ObservableObject
             
             
         }
-  
+  }
 
-            public FullData LoadData()
+/*            public FullData LoadData()
         {
             // 1. Leemos el archivo como un texto gigante (String)
             string jsonString = File.ReadAllText("Flights.json");
@@ -162,5 +156,5 @@ public partial class FirstViewModel: ObservableObject
             FullData data = JsonSerializer.Deserialize<FullData>(jsonString, options)!;
             
             return data;
-        }
-}
+        }*/
+

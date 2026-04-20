@@ -9,11 +9,16 @@ namespace Assignment3.ViewModels;
 
 public partial class ThirdViewModel
 {
+    private List<Flights> _flights;
+
+    // El constructor ahora acepta la lista
+   
     //this is the property that the graph is gonna read
     public ISeries[] Series { get; set; }
 
     public ThirdViewModel(List<Flights> allFlights)
     {
+        _flights = allFlights;
        
         var topAirlines = allFlights
             .GroupBy(f => f.AirlineName)// we make groups by name of the airline
