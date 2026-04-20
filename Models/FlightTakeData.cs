@@ -29,7 +29,7 @@ public class Flights
      public Flights (string flightNumber, string airlineName, string departureAirport, string airlineCode, string arrivalAirport, DateTime scheduledDeparture, DateTime scheduledArrival, string aircraftType, string status)
      {
          FlightNumber = flightNumber;
-        AirlineName = airlineName;
+         AirlineName = airlineName;
          DepartureAirport = departureAirport;
          AirlineCode = airlineCode;
          ArrivalAirport = arrivalAirport;

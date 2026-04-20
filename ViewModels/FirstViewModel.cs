@@ -17,7 +17,6 @@ namespace Assignment3.ViewModels;
 public partial class FirstViewModel: ObservableObject
 {
     
-    
     public string Greeting { get; } = "Choose the airport that you are interested in";
     
     private List<Airport> allAirports = new();//for store airport info

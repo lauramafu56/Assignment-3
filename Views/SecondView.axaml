@@ -8,7 +8,7 @@
              x:DataType="vm:SecondViewModel">
   <StackPanel Margin="20">
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
-    <ComboBox Margin="10" Width="300" ItemsSource="{Binding VisibleAirports}">
+    <ComboBox Margin="10" Width="300" ItemsSource="{Binding VisibleAirports}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay}">
       <ComboBox.ItemTemplate>
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
@@ -18,5 +18,23 @@
         </DataTemplate>  
         </ComboBox.ItemTemplate>
     </ComboBox>
+    <Button Content="Search Flights" Margin="5" Command="{Binding GetDesiredFlightsCommand}"/>
+    <ListBox Margin="10" Width="900" ItemsSource="{Binding SelectedFlights}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <StackPanel Orientation="Horizontal">
+            <TextBlock Text="{Binding FlightNumber}" FontWeight="Bold" Margin="5"/>
+            <TextBlock Text="{Binding AirlineName}" Margin="5"/>
+            <TextBlock Text="{Binding AirlineCode}" Margin="5"/>
+            <TextBlock Text="{Binding DepartureAirport}" Margin="5"/>
+            <TextBlock Text="{Binding ArrivalAirport}" Margin="5"/>
+            <TextBlock Text="{Binding ScheduledDeparture}" Margin="5"/>
+            <TextBlock Text="{Binding ScheduledArrival}" Margin="5"/>
+            <TextBlock Text="{Binding AircraftType}" Margin="5"/>
+            <TextBlock Text="{Binding Status}" Margin="5"/>
+          </StackPanel>
+        </DataTemplate>  
+        </ListBox.ItemTemplate>
+    </ListBox>
   </StackPanel>
 </UserControl>
