@@ -13,9 +13,11 @@
     <StackPanel Grid.Row="0">
         <!-- buttons, Searching, etc -->
          <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
-         <TextBox x:Name="SearchBox" Width="200" Watermark="Código IATA (ej: CPH)..."/>
+         <TextBox x:Name="SearchBox" Width="200" Watermark="IATA CODE(ex: CPH)..."/>
             <Button Content="Show Routes" Command="{Binding ShowRoutesCommand}" 
                     CommandParameter="{Binding #SearchBox.Text}"/>
+            <Button Content="Clean Map" 
+            Command="{Binding ClearMapCommand}"/>
       </StackPanel>
  
  <mapsui:MapControl Grid.Row="1" Map="{Binding Mymap}" />
