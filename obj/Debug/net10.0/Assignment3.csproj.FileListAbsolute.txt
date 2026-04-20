@@ -273,3 +273,6 @@ C:\Users\andre\Documents\GitHub\Assignment-3\obj\Debug\net10.0\refint\Assignment
 C:\Users\andre\Documents\GitHub\Assignment-3\obj\Debug\net10.0\Assignment3.pdb
 C:\Users\andre\Documents\GitHub\Assignment-3\obj\Debug\net10.0\Assignment3.genruntimeconfig.cache
 C:\Users\andre\Documents\GitHub\Assignment-3\obj\Debug\net10.0\ref\Assignment3.dll
+C:\Users\laura\Documents\GitHub\Assignment-3\bin\Debug\net10.0\LiveChartsCore.dll
+C:\Users\laura\Documents\GitHub\Assignment-3\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.dll
+C:\Users\laura\Documents\GitHub\Assignment-3\bin\Debug\net10.0\LiveChartsCore.SkiaSharpView.Avalonia.dll
