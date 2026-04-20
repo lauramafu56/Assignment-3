@@ -25,16 +25,7 @@ public partial class FirstViewModel: ObservableObject
     
       [ObservableProperty]
     private Map _mymap;
-    public void Initialize() 
-    {
-        var data = LoadData(); 
-    
-        // copy the flights from JSON to our observable list
-        foreach (var f in data.Flights)
-        {
-            VisibleFlights.Add(f);
-        }
-    }
+
 
     [RelayCommand]
     public void ShowRoutes(string? originIata)
@@ -89,6 +80,7 @@ public partial class FirstViewModel: ObservableObject
 
     
 }
+  
     private void LoadAll()
     {
         var data = LoadData();

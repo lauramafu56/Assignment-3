@@ -7,10 +7,11 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Assignment3.Views.ThirdView"
              x:DataType="vm:ThirdViewModel" >
+            
 <Grid RowDefinitions="Auto, *">
         <TextBlock Grid.Row="0" Text="Top 5 Airlines with more traffic volume" 
                    FontSize="20" HorizontalAlignment="Center" Margin="20"/>
-        
-        <lvc:CartesianChart Grid.Row="1" Series="{Binding Series}" />
+      
+    
     </Grid>
 </UserControl>
