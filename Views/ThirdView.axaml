@@ -7,13 +7,34 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Assignment3.Views.ThirdView"
              x:DataType="vm:ThirdViewModel" >
-            
-<Grid RowDefinitions="Auto, *">
-        <TextBlock Grid.Row="0" Text="Top 5 Airlines with more traffic volume" 
-                   FontSize="20" HorizontalAlignment="Center" Margin="20"/>
-      
-    <lvc:CartesianChart Grid.Row="1" Series="{Binding Series}" Margin="20"/>
+           
+<Grid RowDefinitions="Auto, *, *" ColumnDefinitions="*,*">
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Top 5 Airlines with more traffic volume"
+                   FontSize="15" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"/>
+      <TextBlock Grid.Row="0" Grid.Column="1" Text="Top 5 Cities with more traffic volume"
+                   FontSize="15" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"/>
+    <Border Grid.Row="1" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10">
+        <lvc:CartesianChart Grid.Row="1" Grid.Column="0" Series="{Binding Series}" Margin="20" XAxes="{Binding XAxes}"  AnimationsSpeed="00:00:01.000" ZoomMode="X"/>
+   </Border>
+    <Border Grid.Row="1" Grid.Column="1" Background="#F8F9FA" CornerRadius="8" Margin="10">
+        <lvc:CartesianChart Grid.Row="1" Grid.Column="1" Series="{Binding Series2}" Margin="20" XAxes="{Binding XAxes2}" YAxes="{Binding YAxes2}"/>
+   </Border>
+   <Border Grid.Row="3" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10">
     
-   
+     <lvc:PieChart Grid.Row="1" 
+                              Series="{Binding PieSeries, Mode=OneWay}"
+                              LegendPosition="Right" 
+                              InitialRotation="-90"
+                              AnimationsSpeed="00:00:01.200"
+                              x:Name="PieSeries"
+                              Margin="10,5,10,10">
+                        <!-- Force chart to update when series changes -->
+                        <lvc:PieChart.Transitions>
+                            <Transitions>
+                                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.01"/>
+                            </Transitions>
+                        </lvc:PieChart.Transitions>
+                    </lvc:PieChart>
+    </Border>
     </Grid>
 </UserControl>
