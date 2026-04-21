@@ -39,11 +39,7 @@ public partial class SecondViewModel: ObservableObject
       }
 
       // Populate available statuses from the flights data. Copilot
-      var uniqueStatuses = AllFlights
-          .Select(f => f.Status)
-          .Distinct()
-          .OrderBy(s => s)
-          .ToList();
+      var uniqueStatuses = AllFlights.Select(f => f.Status).Distinct().OrderBy(s => s).ToList();
       
       foreach (var status in uniqueStatuses)
       {
@@ -53,7 +49,6 @@ public partial class SecondViewModel: ObservableObject
     public AirportTakeData LoadAirports()
     {
         string JsonAirpotData = File.ReadAllText("Flights.json");
-
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         AirportTakeData airportData = JsonSerializer.Deserialize<AirportTakeData>(JsonAirpotData, options)!;
         return airportData;
@@ -105,5 +100,11 @@ public partial class SecondViewModel: ObservableObject
       FullData data = JsonSerializer.Deserialize<FullData>(jsonFlightData, options)!;
 
       return data;
+    }
+      public void ExportFlightsToJson()
+    {
+        var options = new JsonSerializerOptions { WriteIndented = true };
+        string json = JsonSerializer.Serialize(AllFlights, options);
+        File.WriteAllText("ExportedFlights.json", json);
     }
 }

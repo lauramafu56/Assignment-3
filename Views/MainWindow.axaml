@@ -19,8 +19,7 @@
         <ContentControl DockPanel.Dock="Top" Content="{Binding CurrentView}"/>
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
         <Button DockPanel.Dock="Bottom" Content="Next" HorizontalContentAlignment="Center" Command="{Binding NextView}" Margin= "20" HorizontalAlignment="Stretch"/>
-        <Button DockPanel.Dock="Bottom" Content="Export Data" HorizontalContentAlignment="Center" Command="{Binding ExportFlightsToJson}" Margin= "20" HorizontalAlignment="Stretch"/>
-        
+           
     </StackPanel>
     </Grid>
     </DockPanel>

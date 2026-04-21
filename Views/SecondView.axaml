@@ -24,8 +24,12 @@
     <TextBlock HorizontalAlignment="Right" Text="Filter by Status:" Margin="5"/>
     <ComboBox HorizontalAlignment="Right" Height="40" Margin="10" Width="300" ItemsSource="{Binding AvailableStatuses}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"> </ComboBox>
     </StackPanel>
-    <Button Content="Search Flights" Margin="5" Background="#CCD3D3D3" Command="{Binding GetDesiredFlightsCommand}"/>
     
+    
+    <StackPanel Orientation="Horizontal">
+    <Button Content="Search Flights" Margin="5" Background="#CCD3D3D3" Command="{Binding GetDesiredFlightsCommand}"/>
+    <Button Content="Export Data" HorizontalContentAlignment="Center" Command="{Binding ExportFlightsToJson}" Margin= "20" HorizontalAlignment="Right"/>
+    </StackPanel>
     <ScrollViewer Background="White" Margin="5" Height="300">
     <ListBox Margin="10" Width="900" Background="White" ItemsSource="{Binding SelectedFlights}">
       <ListBox.ItemTemplate>

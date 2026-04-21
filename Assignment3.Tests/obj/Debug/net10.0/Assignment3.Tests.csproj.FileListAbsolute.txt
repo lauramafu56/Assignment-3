@@ -1,0 +1,6 @@
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.csproj.AssemblyReference.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.AssemblyInfoInputs.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.AssemblyInfo.cs
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.csproj.CoreCompileInputs.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\Assignment3.Tests\obj\Debug\net10.0\Assignment3.Tests.sourcelink.json

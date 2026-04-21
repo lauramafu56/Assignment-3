@@ -20,15 +20,15 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         CurrentView = firstView;
-        LoadData();
+        
     }
 
-    private void LoadData()
+    /*private void LoadData()
     {
         string jsonString = File.ReadAllText("Flights.json");
         var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
         data = JsonSerializer.Deserialize<FullData>(jsonString, options);
-    }
+    }*/
 
     
     public void NextView()
@@ -45,12 +45,11 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             CurrentView = firstView;
         }
- 
     }
-    public void ExportFlightsToJson()
+    /*public void ExportFlightsToJson()
     {
         var options = new JsonSerializerOptions { WriteIndented = true };
         string json = JsonSerializer.Serialize(data, options);
         File.WriteAllText("ExportedFlights.json", json);
-    }
+    }*/
 }
