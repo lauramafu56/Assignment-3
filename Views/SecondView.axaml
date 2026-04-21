@@ -7,8 +7,11 @@
              x:Class="Assignment3.Views.SecondView"
              x:DataType="vm:SecondViewModel">
   <StackPanel Margin="20">
+    
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
-    <ComboBox Margin="10" Width="300" ItemsSource="{Binding VisibleAirports}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay}">
+    <StackPanel Orientation="Horizontal" Margin="20">
+    <ComboBox Margin="10" Width="300" Height="40"
+     ItemsSource="{Binding VisibleAirports}" SelectedItem="{Binding SelectedAirport, Mode=TwoWay}">
       <ComboBox.ItemTemplate>
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
@@ -16,25 +19,31 @@
             <TextBlock Text="{Binding Name}" Margin="5"/>
           </StackPanel>
         </DataTemplate>  
-        </ComboBox.ItemTemplate>
+      </ComboBox.ItemTemplate>
     </ComboBox>
-    <Button Content="Search Flights" Margin="5" Command="{Binding GetDesiredFlightsCommand}"/>
-    <ListBox Margin="10" Width="900" ItemsSource="{Binding SelectedFlights}">
+    <TextBlock HorizontalAlignment="Right" Text="Filter by Status:" Margin="5"/>
+    <ComboBox HorizontalAlignment="Right" Height="40" Margin="10" Width="300" ItemsSource="{Binding AvailableStatuses}" SelectedItem="{Binding SelectedStatus, Mode=TwoWay}"> </ComboBox>
+    </StackPanel>
+    <Button Content="Search Flights" Margin="5" Background="#CCD3D3D3" Command="{Binding GetDesiredFlightsCommand}"/>
+    
+    <ScrollViewer Background="White" Margin="5" Height="300">
+    <ListBox Margin="10" Width="900" Background="White" ItemsSource="{Binding SelectedFlights}">
       <ListBox.ItemTemplate>
         <DataTemplate>
           <StackPanel Orientation="Horizontal">
-            <TextBlock Text="{Binding FlightNumber}" FontWeight="Bold" Margin="5"/>
-            <TextBlock Text="{Binding AirlineName}" Margin="5"/>
+            <TextBlock Background="LightPink" Text="{Binding FlightNumber}" FontWeight="Bold" Margin="5"/>
+            <TextBlock Background="LightBlue" Text="{Binding AirlineName}" Margin="5"/>
             <TextBlock Text="{Binding AirlineCode}" Margin="5"/>
             <TextBlock Text="{Binding DepartureAirport}" Margin="5"/>
             <TextBlock Text="{Binding ArrivalAirport}" Margin="5"/>
             <TextBlock Text="{Binding ScheduledDeparture}" Margin="5"/>
             <TextBlock Text="{Binding ScheduledArrival}" Margin="5"/>
             <TextBlock Text="{Binding AircraftType}" Margin="5"/>
-            <TextBlock Text="{Binding Status}" Margin="5"/>
+            <TextBlock Background="#FFFFAD" Text="{Binding Status}" Margin="5"/>
           </StackPanel>
         </DataTemplate>  
         </ListBox.ItemTemplate>
     </ListBox>
+    </ScrollViewer>
   </StackPanel>
 </UserControl>

@@ -11,7 +11,7 @@ namespace Assignment3.ViewModels;
 // Mi nueva mision: Conseguir rellenar la lista de SelectedFlights en base al selected airport
 public partial class SecondViewModel: ObservableObject
 {
-    public string Greeting { get; } = "Here you can find the information about the airport that you are choosing, so choose an airport first";
+    public string Greeting { get; } = "On this view the user can select an airport and see the flights departing from it.";
 
     public AirportTakeData AirportTakeData { get; } = new AirportTakeData();
     public FlightTakeData FlightTakeData { get; } = new FlightTakeData();
@@ -20,6 +20,7 @@ public partial class SecondViewModel: ObservableObject
     public ObservableCollection<Airport> VisibleAirports { get; } = new();
     public ObservableCollection<Flights> AllFlights { get; }= new();//To store flight info
     public ObservableCollection<Flights> SelectedFlights { get; }= new();//To store flight info
+    public ObservableCollection<string> AvailableStatuses { get; } = new();//To store available flight statuses Copilot
 
 
     public void Initialize()// this method is used to initialize the data entendible to the UI.
@@ -35,6 +36,18 @@ public partial class SecondViewModel: ObservableObject
       {
           AllFlights.Add(flight);
       }
+
+      // Populate available statuses from the flights data. Copilot
+      var uniqueStatuses = AllFlights
+          .Select(f => f.Status)
+          .Distinct()
+          .OrderBy(s => s)
+          .ToList();
+      
+      foreach (var status in uniqueStatuses)
+      {
+          AvailableStatuses.Add(status);
+      }
     }
     public AirportTakeData LoadAirports()
     {
@@ -48,6 +61,9 @@ public partial class SecondViewModel: ObservableObject
     [ObservableProperty]
     public Airport _SelectedAirport;
 
+    [ObservableProperty]//Copilot
+    public string _SelectedStatus;
+
     [RelayCommand]
     private void GetDesiredFlights()
     {
@@ -56,9 +72,14 @@ public partial class SecondViewModel: ObservableObject
        if (SelectedAirport == null)
             return;
 
-        // Filtrar vuelos donde el aeropuerto seleccionado sea origen o destino
-        var filtered = AllFlights.Where(f =>
-            f.DepartureAirport == SelectedAirport.IataCode);
+        // Filter flights where the selected airport is the departure airport
+        var filtered = AllFlights.Where(f => f.DepartureAirport == SelectedAirport.IataCode);
+
+        // Additionally filter by status if a status is selected. Copilot
+        if (!string.IsNullOrEmpty(SelectedStatus))
+        {
+            filtered = filtered.Where(f => f.Status == SelectedStatus);
+        }
 
         foreach (var f in filtered)
             SelectedFlights.Add(f);
