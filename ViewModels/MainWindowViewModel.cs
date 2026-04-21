@@ -10,6 +10,7 @@ using System.Collections.Generic;
 namespace Assignment3.ViewModels;
 public partial class MainWindowViewModel : ViewModelBase
 {
+<<<<<<< Updated upstream
     private FirstView firstView;
     private SecondView secondView ;
     private ThirdView thirdView ;
@@ -17,6 +18,12 @@ public partial class MainWindowViewModel : ViewModelBase
     private ThirdViewModel _thirdPage;
     private List<Airport> allAirports = new();//for store airport info
     private List<Flights> allFlights = new();//for store flight info
+=======
+    private FirstView firstView {get;} = new FirstView() { DataContext= new FirstViewModel() };
+    private SecondView secondView {get;} = new SecondView() { DataContext= new SecondViewModel() };
+    private ThirdView thirdView {get;} = new ThirdView() { DataContext= new ThirdViewModel() };
+
+>>>>>>> Stashed changes
     [ObservableProperty]
     private UserControl _currentView;
 
@@ -54,6 +61,7 @@ public partial class MainWindowViewModel : ViewModelBase
         }
  
     }
+<<<<<<< Updated upstream
      public FullData LoadData()
         {
             // 1. Leemos el archivo como un texto gigante (String)
@@ -71,4 +79,22 @@ public partial class MainWindowViewModel : ViewModelBase
       
 
 
+=======
+     public void BackView()
+    {
+        if (CurrentView == firstView)
+        {
+            CurrentView = thirdView;
+        }
+        else if (CurrentView == secondView)
+        {
+            CurrentView = firstView;
+        }
+        else
+        {
+            CurrentView = secondView;
+        }
+ 
+    }
+>>>>>>> Stashed changes
 }

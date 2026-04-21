@@ -1,7 +1,5 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
-using LiveChartsCore;
-using LiveChartsCore.SkiaSharpView;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +7,7 @@ namespace Assignment3.ViewModels;
 
 public partial class ThirdViewModel
 {
+<<<<<<< Updated upstream
     private List<Flights> _flights;
 
     // El constructor ahora acepta la lista
@@ -23,21 +22,50 @@ public partial class ThirdViewModel
         var topAirlines = allFlights
             .GroupBy(f => f.AirlineName)// we make groups by name of the airline
             .Select(grupo => new { //we select the name 
+=======
+    private List<Airport> Airports = new();
+    private List<Flights> Flights = new();
+
+    public ObservableCollection<string> TopAirlines { get; set; } = new();
+
+    public FullData LoadData3()
+    {
+        var jsonString3 = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Flights.json"));
+        var options3 = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+        FullData data3 = JsonSerializer.Deserialize<FullData>(jsonString3, options3)!;
+        return data3;   
+    }
+
+    public ThirdViewModel()
+    {
+        var data3 = LoadData3();
+        Flights = data3.Flights;
+
+        var topAirlines = Flights
+            .GroupBy(f => f.AirlineName)
+            .Select(grupo => new { 
+>>>>>>> Stashed changes
                 Nombre = grupo.Key, 
-                Total = grupo.Count() //we count how much fligths are there
+                Total = grupo.Count() 
             })
-            .OrderByDescending(x => x.Total)// we order from biggest to smallest
-            .Take(5)//we take the 5 first for not make the graph ugly
+            .OrderByDescending(x => x.Total)
+            .Take(5)
             .ToList();
 
-        // graph configuration
-        Series = new ISeries[]
+        TopAirlines.Clear();
+        foreach (var airline in topAirlines)
         {
+<<<<<<< Updated upstream
             new ColumnSeries<int>
             {
                 Values = topAirlines.Select(a => a.Total).ToArray(),
                 Name = "Total flights"
             }
         };
+=======
+            TopAirlines.Add($"{airline.Nombre}: {airline.Total} flights");
+        }
+>>>>>>> Stashed changes
     }
 }
+

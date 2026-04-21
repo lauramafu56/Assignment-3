@@ -118,8 +118,8 @@ public partial class FirstViewModel: ObservableObject
         var routeLayer = new MemoryLayer { Name = "Routes" };
 
         
-        _mymap.Layers.Add(airportLayer);
-        _mymap.Layers.Add(routeLayer);
+        Mymap.Layers.Add(airportLayer);
+        Mymap.Layers.Add(routeLayer);
       
      
     
@@ -147,8 +147,7 @@ public partial class FirstViewModel: ObservableObject
 /*            public FullData LoadData()
         {
             // 1. Leemos el archivo como un texto gigante (String)
-            string jsonString = File.ReadAllText("Flights.json");
-
+           string jsonString = File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Flights.json"));
             // 2. Configuramos para que no le importen las mayúsculas/minúsculas
             var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 

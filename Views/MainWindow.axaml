@@ -3,10 +3,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="550"
         x:Class="Assignment3.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Assignment3.ViewModels"
+        xmlns:vm="clr-namespace:Assignment3.ViewModels"
         Title="Assignment3">
 
     <Design.DataContext>
@@ -15,11 +14,12 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     <DockPanel>
-    <Grid>
+    
         <ContentControl DockPanel.Dock="Top" Content="{Binding CurrentView}"/>
         <StackPanel DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
-        <Button DockPanel.Dock="Bottom" Content="Next" HorizontalContentAlignment="Center" Command="{Binding NextView}" Margin= "20" HorizontalAlignment="Stretch"/>
+        <Button DockPanel.Dock="Bottom" Content="Next" HorizontalContentAlignment="Left" Command="{Binding NextView}" Margin= "20" HorizontalAlignment="Stretch"/>
+         <Button DockPanel.Dock="Bottom" Content="Back" HorizontalContentAlignment="Right" Command="{Binding BackView}" Margin= "20" HorizontalAlignment="Stretch"/>
         </StackPanel>
-    </Grid>
+   
     </DockPanel>
 </Window>

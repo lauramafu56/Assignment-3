@@ -2,10 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Assignment3.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Assignment3.Views.SecondView"
-             x:DataType="vm:SecondViewModel">
+             x:Class="Assignment3.Views.SecondView">
   <StackPanel Margin="20">
     <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="15" Margin="20"/>
     <ComboBox Margin="10" Width="300" ItemsSource="{Binding VisibleAirports}">
