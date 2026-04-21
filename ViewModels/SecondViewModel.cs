@@ -6,6 +6,7 @@ using System.IO;
 using System.Text.Json;
 using System.Linq;
 using NetTopologySuite.Operation.Buffer;
+using System.ComponentModel;
 
 namespace Assignment3.ViewModels;
 // Mi nueva mision: Conseguir rellenar la lista de SelectedFlights en base al selected airport
@@ -59,10 +60,10 @@ public partial class SecondViewModel: ObservableObject
     }
     
     [ObservableProperty]
-    public Airport _SelectedAirport;
+    public Airport? _SelectedAirport;
 
     [ObservableProperty]//Copilot
-    public string _SelectedStatus;
+    public string? _SelectedStatus;
 
     [RelayCommand]
     private void GetDesiredFlights()

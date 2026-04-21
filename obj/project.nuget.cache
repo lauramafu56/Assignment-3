@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ldFgTNHCDYA=",
+  "dgSpecHash": "gVrWZDr6EC0=",
   "success": true,
   "projectFilePath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
   "expectedPackageFiles": [
@@ -27,9 +27,9 @@
     "C:\\Users\\laura\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\8.3.1.2\\harfbuzzsharp.nativeassets.macos.8.3.1.2.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\harfbuzzsharp.nativeassets.webassembly\\8.3.1.2\\harfbuzzsharp.nativeassets.webassembly.8.3.1.2.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\8.3.1.2\\harfbuzzsharp.nativeassets.win32.8.3.1.2.nupkg.sha512",
-    "C:\\Users\\laura\\.nuget\\packages\\livechartscore\\2.0.0-rc2\\livechartscore.2.0.0-rc2.nupkg.sha512",
-    "C:\\Users\\laura\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0-rc2\\livechartscore.skiasharpview.2.0.0-rc2.nupkg.sha512",
-    "C:\\Users\\laura\\.nuget\\packages\\livechartscore.skiasharpview.avalonia\\2.0.0-rc2\\livechartscore.skiasharpview.avalonia.2.0.0-rc2.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\livechartscore\\2.0.0\\livechartscore.2.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\livechartscore.skiasharpview\\2.0.0\\livechartscore.skiasharpview.2.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\livechartscore.skiasharpview.avalonia\\2.0.0\\livechartscore.skiasharpview.avalonia.2.0.0.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\mapsui\\5.0.2\\mapsui.5.0.2.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\mapsui.avalonia\\5.0.2\\mapsui.avalonia.5.0.2.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\mapsui.nts\\5.0.2\\mapsui.nts.5.0.2.nupkg.sha512",
