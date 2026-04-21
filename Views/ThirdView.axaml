@@ -7,13 +7,14 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Assignment3.Views.ThirdView"
              x:DataType="vm:ThirdViewModel" >
-            
-<Grid RowDefinitions="Auto, *">
-        <TextBlock Grid.Row="0" Text="Top 5 Airlines with more traffic volume" 
+           
+<Grid RowDefinitions="*, *, *" ColumnDefinitions="*,*">
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Top 5 Airlines with more traffic volume"
                    FontSize="20" HorizontalAlignment="Center" Margin="20"/>
-      
-    <lvc:CartesianChart Grid.Row="1" Series="{Binding Series}" Margin="20"/>
-    
+      <TextBlock Grid.Row="0" Grid.Column="1" Text="Top 5 Countries with more traffic volume"
+                   FontSize="20" HorizontalAlignment="Center" Margin="20"/>
+    <lvc:CartesianChart Grid.Row="1" Grid.Column="0" Series="{Binding Series}" Margin="20" XAxes="{Binding XAxes}"  AnimationsSpeed="00:00:01.000" ZoomMode="X"/>
+   <lvc:CartesianChart Grid.Row="1" Grid.Column="1" Series="{Binding Series2}" Margin="20" XAxes="{Binding XAxes2}"/>
    
     </Grid>
 </UserControl>

@@ -18,6 +18,12 @@ public partial class ThirdViewModel: ObservableObject
     private List<Flights> Flights= new();
     public ISeries[] Series { get; set; }
     public Axis[] XAxes { get; set; }
+    public ISeries[] Series2 { get; set; }
+    public Axis[] XAxes2 { get; set; }
+    public Axis[] YAxes2 { get; set; }
+
+
+
 
     public ObservableCollection<Flights> AvailableFlights {get; set;}= new();
 
@@ -42,9 +48,9 @@ public partial class ThirdViewModel: ObservableObject
 
         var topAirlines = Flights
             .GroupBy(f => f.AirlineName)// we make groups by name of the airline
-            .Select(grupo => new { //we select the name 
-                Nombre = grupo.Key, 
-                Total = grupo.Count() //we count how much fligths are there
+            .Select(group => new { //we select the name 
+                Name = group.Key, 
+                Total = group.Count() //we count how much fligths are there
             })
             .OrderByDescending(x => x.Total)// we order from biggest to smallest
             .Take(5)//we take the 5 first for not make the graph ugly
@@ -64,10 +70,48 @@ public partial class ThirdViewModel: ObservableObject
         {
         new Axis
         {
-            Labels = topAirlines.Select(a => a.Nombre).ToArray(),
+            Labels = topAirlines.Select(a => a.Name).ToArray(),
             LabelsRotation = 15 // Para que se lean mejor si los nombres son largos
         }
-};
+        };
+
+        Airports = data3.Airports;
+         var topCountrys = Airports
+            .GroupBy(f => f.City)// we make groups by name of the city
+            .Select(group2 => new { //we select the name 
+                NameOfCountry = group2.Key, 
+                TotalFlights = group2.Count() //we count how much fligths are there
+            })
+            .OrderByDescending(x => x.TotalFlights)// we order from biggest to smallest
+            .Take(5)//we take the 5 first for not make the graph ugly
+            .ToList();
+
+
+        Series2 = new ISeries[]
+        {
+            new ColumnSeries<int>
+            {
+                Values = topCountrys.Select(a => a.TotalFlights).ToArray(),
+                Name = "Countrys"
+            }
+        };
+
+        XAxes2 = new Axis[]
+        {
+            new Axis
+            {
+                Labels = topCountrys.Select(a => a.NameOfCountry).ToArray(),
+                LabelsRotation = 15 // Para que se lean mejor si los nombres son largos
+            }
+        };
+        YAxes2 = new Axis[]
+        {
+            new Axis
+            {
+                Labels = topCountrys.Select(a => a.TotalFlights).ToArray(),
+                
+            }
+        };
     }
    
 }
