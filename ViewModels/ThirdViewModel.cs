@@ -10,6 +10,7 @@ using System.Linq;
 using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
+using LiveChartsCore.SkiaSharpView.Drawing;
 
 namespace Assignment3.ViewModels;
 
@@ -25,17 +26,9 @@ public partial class ThirdViewModel: ObservableObject
     public Axis[] XAxes2 { get; set; }
     public Axis[] YAxes2 { get; set; }
     private ISeries[] _pieSeries = Array.Empty<ISeries>();
-    public ISeries[] PieSeries 
-    {
-        get => _pieSeries;
-        private set
-        {
-            _pieSeries = value;
-            OnPropertyChanged(nameof(PieSeries));
-        }
-    }
-
-
+    public ObservableCollection<ISeries> PieSeries { get; set; } = new();
+    public ObservableCollection<ISeries> DurationSeries { get; set; } = new();
+    public Axis[] DurationXAxes { get; set; }
 
     public ObservableCollection<Flights> AvailableFlights {get; set;}= new();
 
@@ -128,18 +121,60 @@ public partial class ThirdViewModel: ObservableObject
                
             }
         };
+        
+        var statusGroups = Flights
+        .GroupBy(f => f.Status)
+        .Select(g => new { Status = g.Key, Count = g.Count() })
+        .ToList();
 
-          PieSeries = new ISeries[]
+        PieSeries.Clear();
+        foreach (var group in statusGroups)
         {
-            new PieSeries<int>
+            PieSeries.Add(new PieSeries<int>
             {
-                Values = new []{ 2, 5, 4, 2, 6 },
-                Name = "Income", 
-                Stroke = null
-            },
+                Values = new[] { group.Count },
+                Name = group.Status,
+                // Usamos una forma más directa de configurar las etiquetas
+                DataLabelsPosition = LiveChartsCore.Measure.PolarLabelsPosition.Middle,
+                // CORRECCIÓN: Usamos Coordinate.PrimaryValue
+                DataLabelsFormatter = point => $"{point.Context.Series.Name}: {point.Coordinate.PrimaryValue}"
+            });
+        }
+        var data = LoadData3();
+    
+    // Agrupamos por aeropuerto de llegada para ver cuánto se tarda en llegar a cada sitio
+    var promedioPorDestino = data.Flights
+        .Select(f => {
+            // Intentamos convertir las strings a DateTime
+           DateTime salida = f.ScheduledDeparture;
+            DateTime llegada = f.ScheduledArrival;
             
+            // Si la llegada es "menor" que la salida, es que aterrizó al día siguiente
+            if (llegada < salida) llegada = llegada.AddDays(1);
             
-        };
+            return new { f.ArrivalAirport, Duracion = (llegada - salida).TotalMinutes };
+        })
+        .GroupBy(x => x.ArrivalAirport)
+        .Select(g => new { 
+            Destino = g.Key, 
+            Promedio = g.Average(x => x.Duracion) 
+        })
+        .OrderByDescending(x => x.Promedio)
+        .Take(5)
+        .ToList();
+
+    DurationSeries.Clear();
+    DurationSeries.Add(new RowSeries<double> // RowSeries hace las barras horizontales
+    {
+        Values = promedioPorDestino.Select(d => d.Promedio).ToArray(),
+        Name = "Minutes Average"
+    });
+
+    DurationXAxes = new Axis[] {
+        new Axis { Labels = promedioPorDestino.Select(d => d.Destino).ToArray(),
+        Labeler = value => $"{value:N2} min" }
+    };
+
     }
    
 }
