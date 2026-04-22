@@ -89,7 +89,6 @@
 
         <lvc:CartesianChart Grid.Column="0" Series="{Binding DurationSeries}" 
                             XAxes="{Binding DurationXAxes}" 
-<<<<<<< HEAD
                             Height="300"
                             IsVisible="{Binding ShowDurationSeries}"/>
 
@@ -107,11 +106,6 @@
                                 FontWeight="Bold"/>
               </Grid>              
               
-=======
-                            Height="300" />
-
-    
->>>>>>> fa1cd30d6075bf5cf6203c55fecc78e2bdff6a4d
     </Border>
         <Button Content="Export Chart to Image" HorizontalContentAlignment="Center" Command="{Binding ExportChartToImage}" Margin= "20" HorizontalAlignment="Right"/>
  

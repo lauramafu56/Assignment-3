@@ -11,13 +11,13 @@ using System.Linq;
 using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
-<<<<<<< HEAD
+
 using LiveChartsCore.SkiaSharpView.Drawing;
 using CommunityToolkit.Mvvm.Input;
-=======
+
 
 using LiveChartsCore.SkiaSharpView.SKCharts;
->>>>>>> fa1cd30d6075bf5cf6203c55fecc78e2bdff6a4d
+
 
 namespace Assignment3.ViewModels;
 
@@ -311,7 +311,7 @@ public void AddChart(string chartName)
     };
 
     }
-<<<<<<< HEAD
+
     public void CalcularDuraciones(List<Flights> listaVuelos)
 {
     var promedioData = listaVuelos
@@ -344,7 +344,7 @@ public void AddChart(string chartName)
     };
 }
    
-=======
+
     [RelayCommand]
     public void ExportChartToImage()
     {
@@ -361,5 +361,5 @@ public void AddChart(string chartName)
         using var stream = File.OpenWrite("ExportedChart.png");
         data.SaveTo(stream);
     }
->>>>>>> fa1cd30d6075bf5cf6203c55fecc78e2bdff6a4d
+
 }
