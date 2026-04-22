@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj": {}
+    "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj": {
+    "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
         "projectName": "Assignment3",
-        "projectPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\obj\\",
+        "projectPath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -375,17 +375,17 @@
         }
       }
     },
-    "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj": {
+    "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj",
         "projectName": "Assignment3.Tests",
-        "projectPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj",
-        "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\obj\\",
+        "projectPath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj",
+        "packagesPath": "C:\\Users\\laura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\laura\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -397,8 +397,8 @@
           "net10.0": {
             "targetAlias": "net10.0",
             "projectReferences": {
-              "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj": {
-                "projectPath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj"
+              "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj": {
+                "projectPath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj"
               }
             }
           }
