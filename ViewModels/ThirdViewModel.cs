@@ -11,6 +11,7 @@ using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
 using LiveChartsCore.SkiaSharpView.Drawing;
+using CommunityToolkit.Mvvm.Input;
 
 namespace Assignment3.ViewModels;
 
@@ -32,6 +33,66 @@ public partial class ThirdViewModel: ObservableObject
 
     public ObservableCollection<Flights> AvailableFlights {get; set;}= new();
 
+    // --- PROPIEDADES DE VISIBILIDAD (Renombradas) ---
+
+[ObservableProperty]
+private bool _showSeries = true; // Antes: PlatformsChart (Gráfica de Aerolíneas)
+
+[ObservableProperty]
+private bool _showSeries2 = true; // Antes: GenrePieChart (Gráfica de Ciudades)
+
+[ObservableProperty]
+private bool _showPieSeries = true; // Antes: SubscriptionTypePieChart (Gráfica de Estados)
+
+[ObservableProperty]
+private bool _showDurationSeries = false; // Para la gráfica del "Reto" de promedios
+
+[ObservableProperty]
+private bool _showEmptyState;
+     public ObservableCollection<string> AvailableCharts 
+    { 
+        get
+        {
+            var chartsList = new ObservableCollection<string>();
+            
+            // If there are no hidden charts (all charts are visible), return empty collection
+            if (HiddenCharts.Count == 0)
+                return chartsList;
+            
+            // Add the "Show All Charts" option at the top if there are multiple hidden charts
+            if (HiddenCharts.Count > 1)
+                chartsList.Add("Show All Charts");
+            
+            // Add individual hidden charts
+            if (HiddenCharts.Contains("Top Streaming Platforms by Usage"))
+                chartsList.Add("Top Streaming Platforms by Usage");
+                
+            if (HiddenCharts.Contains("Most Streamed Music Genres"))
+                chartsList.Add("Most Streamed Music Genres");
+                
+            if (HiddenCharts.Contains("Most Popular Subscription Type"))
+                chartsList.Add("Most Popular Subscription Type");
+                
+            if (HiddenCharts.Contains("Minutes Streamed per day by Age"))
+                chartsList.Add("Minutes Streamed per day by Age");
+
+            if (HiddenCharts.Contains("Top Artists by Listeners"))
+                chartsList.Add("Top Artists by Listeners");
+                
+            return chartsList;
+        }
+    }
+     private HashSet<string> _hiddenCharts = new HashSet<string>();
+    private HashSet<string> HiddenCharts 
+    { 
+        get => _hiddenCharts;
+        set
+        {
+            _hiddenCharts = value;
+            OnPropertyChanged(nameof(AvailableCharts));
+        }
+    }
+
      public FullData LoadData3()
     {
         var jsonString3 = File.ReadAllText("Flights.json");
@@ -42,6 +103,73 @@ public partial class ThirdViewModel: ObservableObject
             
      return data3;   
     }
+
+    
+    [RelayCommand]
+    public void Show3chartsCommand()
+    {
+     
+    }
+    [RelayCommand]
+public void RemoveChart(string chartId)
+{
+    string? chartToRemove = null;
+    
+    switch (chartId)
+    {
+        case "Series":
+            ShowSeries = false;
+            chartToRemove = "Top Airlines";
+            break;
+        case "Series2":
+            ShowSeries2 = false;
+            chartToRemove = "Flights per City";
+            break;
+        case "PieSeries":
+            ShowPieSeries = false;
+            chartToRemove = "Flight Status";
+            break;
+        case "Duration":
+            ShowDurationSeries = false;
+            chartToRemove = "Average Duration";
+            break;
+    }
+
+    if (chartToRemove != null)
+    {
+        HiddenCharts.Add(chartToRemove);
+        OnPropertyChanged(nameof(AvailableCharts));
+        
+        // El estado vacío se activa si todas están ocultas
+        ShowEmptyState = !ShowSeries && !ShowSeries2 && !ShowPieSeries && !ShowDurationSeries;
+    }
+}
+[RelayCommand]
+public void AddChart(string chartName)
+{
+
+    if (chartName == "Average Duration")
+    {
+        // Calculamos los datos justo antes de mostrarla (por si acaso)
+        var data = LoadData3();
+        
+       CalcularDuraciones(data.Flights);
+        
+        ShowDurationSeries = true; // ¡Aquí ocurre la magia!
+    }
+    else if (chartName == "Show All Charts")
+    {
+        ShowSeries = true; 
+        ShowSeries2 = true; 
+        ShowPieSeries = true; 
+        ShowDurationSeries = true;
+    }
+    
+    // Quitamos la opción de la lista de "pendientes"
+    HiddenCharts.Remove(chartName);
+    OnPropertyChanged(nameof(AvailableCharts));
+}
+
     public ThirdViewModel()
     {
        var data3 = LoadData3();
@@ -140,7 +268,7 @@ public partial class ThirdViewModel: ObservableObject
                 DataLabelsFormatter = point => $"{point.Context.Series.Name}: {point.Coordinate.PrimaryValue}"
             });
         }
-        var data = LoadData3();
+           var data = LoadData3();
     
     // Agrupamos por aeropuerto de llegada para ver cuánto se tarda en llegar a cada sitio
     var promedioPorDestino = data.Flights
@@ -172,9 +300,40 @@ public partial class ThirdViewModel: ObservableObject
 
     DurationXAxes = new Axis[] {
         new Axis { Labels = promedioPorDestino.Select(d => d.Destino).ToArray(),
-        Labeler = value => $"{value:N2} min" }
+        }
     };
 
     }
+    public void CalcularDuraciones(List<Flights> listaVuelos)
+{
+    var promedioData = listaVuelos
+        .Select(f => {
+            DateTime salida = f.ScheduledDeparture;
+            DateTime llegada = f.ScheduledArrival;
+            if (llegada < salida) llegada = llegada.AddDays(1);
+            return new { f.ArrivalAirport, Duracion = (llegada - salida).TotalMinutes };
+        })
+        .GroupBy(x => x.ArrivalAirport)
+        .Select(g => new { 
+            Destino = g.Key, 
+            Promedio = Math.Round(g.Average(x => x.Duracion), 2) 
+        })
+        .OrderByDescending(x => x.Promedio)
+        .Take(5)
+        .ToList();
+
+    DurationSeries.Clear();
+    DurationSeries.Add(new RowSeries<double> 
+    {
+        Values = promedioData.Select(d => d.Promedio).ToArray(),
+        Name = "Minutes Average",
+        DataLabelsPosition = LiveChartsCore.Measure.DataLabelsPosition.End,
+        DataLabelsFormatter = point => $"{point.Coordinate.PrimaryValue} min"
+    });
+
+    DurationXAxes = new Axis[] {
+        new Axis { Labels = promedioData.Select(d => d.Destino).ToArray() }
+    };
+}
    
 }
