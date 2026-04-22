@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ugq00y25Ed4=",
+  "dgSpecHash": "GBt8BfEgd5w=",
   "success": true,
   "projectFilePath": "C:\\Users\\laura\\Documents\\GitHub\\Assignment-3\\Assignment3.Tests\\Assignment3.Tests.csproj",
   "expectedPackageFiles": [
@@ -55,6 +55,11 @@
     "C:\\Users\\laura\\.nuget\\packages\\svg.custom\\3.2.1\\svg.custom.3.2.1.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\svg.model\\3.2.1\\svg.model.3.2.1.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\svg.skia\\3.2.1\\svg.skia.3.2.1.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\system.collections.immutable\\8.0.0\\system.collections.immutable.8.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\system.reflection.metadata\\8.0.0\\system.reflection.metadata.8.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\tmds.dbus.protocol\\0.92.0\\tmds.dbus.protocol.0.92.0.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\topten.richtextkit\\0.4.167\\topten.richtextkit.0.4.167.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\xunit\\2.9.3\\xunit.2.9.3.nupkg.sha512",
@@ -64,7 +69,10 @@
     "C:\\Users\\laura\\.nuget\\packages\\xunit.core\\2.9.3\\xunit.core.2.9.3.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\xunit.extensibility.core\\2.9.3\\xunit.extensibility.core.2.9.3.nupkg.sha512",
     "C:\\Users\\laura\\.nuget\\packages\\xunit.extensibility.execution\\2.9.3\\xunit.extensibility.execution.2.9.3.nupkg.sha512",
-    "C:\\Users\\laura\\.nuget\\packages\\xunit.runner.visualstudio\\3.1.4\\xunit.runner.visualstudio.3.1.4.nupkg.sha512"
+    "C:\\Users\\laura\\.nuget\\packages\\xunit.runner.visualstudio\\3.1.4\\xunit.runner.visualstudio.3.1.4.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.13\\microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.13\\microsoft.windowsdesktop.app.ref.9.0.13.nupkg.sha512",
+    "C:\\Users\\laura\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.13\\microsoft.aspnetcore.app.ref.9.0.13.nupkg.sha512"
   ],
   "logs": []
 }

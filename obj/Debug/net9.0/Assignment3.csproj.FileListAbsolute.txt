@@ -1,0 +1,8 @@
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.csproj.AssemblyReference.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Avalonia\Resources.Inputs.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Avalonia\resources
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.AssemblyInfoInputs.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.AssemblyInfo.cs
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.csproj.CoreCompileInputs.cache
+C:\Users\laura\Documents\GitHub\Assignment-3\obj\Debug\net9.0\Assignment3.sourcelink.json

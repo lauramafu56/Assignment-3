@@ -1,8 +1,6 @@
 ﻿namespace Assignment3.Tests;
-//using Assignment3.ViewModels;
-//using Xunit;
-//using System.Collections.Generic;
-//using Xunit;
+using Assignment3.ViewModels;
+using System.Collections.Generic;
 using System.Linq;
 
 public class SecondViewModelTests
