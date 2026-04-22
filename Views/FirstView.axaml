@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:Assignment3.ViewModels"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:mapsui="clr-namespace:Mapsui.UI.Avalonia;assembly=Mapsui.UI.Avalonia"
-             mc:Ignorable="d" d:DesignWidth="900" d:DesignHeight="550"
+             mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="650"
              x:Class="Assignment3.Views.FirstView"
              x:DataType="vm:FirstViewModel">
 

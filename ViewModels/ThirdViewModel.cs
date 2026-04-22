@@ -24,8 +24,16 @@ public partial class ThirdViewModel: ObservableObject
     public ISeries[] Series2 { get; set; }
     public Axis[] XAxes2 { get; set; }
     public Axis[] YAxes2 { get; set; }
-    public ISeries[] PieSeries { get; set; } 
-
+    private ISeries[] _pieSeries = Array.Empty<ISeries>();
+    public ISeries[] PieSeries 
+    {
+        get => _pieSeries;
+        private set
+        {
+            _pieSeries = value;
+            OnPropertyChanged(nameof(PieSeries));
+        }
+    }
 
 
 
