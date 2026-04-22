@@ -51,3 +51,4 @@ Satisfy all one bonus-point requirements and additionally implement at least one
 * **Dynamic Charts:** Users can add or remove charts dynamically. You should provide the option to add three extra charts, which can be pre-made.
 * **Real-time flight tracking:** Integrate a live flight data API (e.g., [OpenSky Network](https://opensky-network.org/)) to display live aircraft positions on the map, with periodic auto-refresh and visual position updates.
 * **History navigation:** The system logs navigation history so the user can navigate backward and forward between visited views.
+

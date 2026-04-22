@@ -40,3 +40,5 @@ public class Flights
      }
 
 }
+/*
+now the test wrok i only wnat nice looking logging in the console terminal to know which test succees like i green and everything*/
