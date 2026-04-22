@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -15,11 +15,18 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Using Include="Xunit" />
+    <ProjectReference Include="..\Assignment3.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Assignment3.csproj" />
+    <None Include="..\Flights.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>Flights.json</Link>
+    </None>
+    <None Include="..\ExportedFlights.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>ExportedFlights.json</Link>
+    </None>
   </ItemGroup>
 
 </Project>

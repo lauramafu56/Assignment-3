@@ -1,0 +1,30 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+
+# ReSharper
+.resharper
+.resharper.user
+
+# User-specific files
+.vscode/
+*.swp
+*.swo
+*~
+
+# Test results
+TestResults/
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# dotnet
+.dotnet/

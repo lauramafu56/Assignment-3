@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bAkRbhce+X8=",
+  "dgSpecHash": "MEICMUTp2TI=",
   "success": true,
   "projectFilePath": "C:\\Users\\andre\\Documents\\GitHub\\Assignment-3\\Assignment3.csproj",
   "expectedPackageFiles": [
@@ -49,15 +49,8 @@
     "C:\\Users\\andre\\.nuget\\packages\\svg.custom\\3.2.1\\svg.custom.3.2.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\svg.model\\3.2.1\\svg.model.3.2.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\svg.skia\\3.2.1\\svg.skia.3.2.1.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\system.text.json\\9.0.0\\system.text.json.9.0.0.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\system.valuetuple\\4.5.0\\system.valuetuple.4.5.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\tmds.dbus.protocol\\0.92.0\\tmds.dbus.protocol.0.92.0.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\topten.richtextkit\\0.4.167\\topten.richtextkit.0.4.167.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.ref\\9.0.13\\microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\9.0.13\\microsoft.windowsdesktop.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\9.0.13\\microsoft.aspnetcore.app.ref.9.0.13.nupkg.sha512",
-    "C:\\Users\\andre\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\9.0.13\\microsoft.netcore.app.host.win-x64.9.0.13.nupkg.sha512"
+    "C:\\Users\\andre\\.nuget\\packages\\topten.richtextkit\\0.4.167\\topten.richtextkit.0.4.167.nupkg.sha512"
   ],
   "logs": []
 }
