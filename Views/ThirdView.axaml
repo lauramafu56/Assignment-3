@@ -49,7 +49,12 @@
         <lvc:CartesianChart Series="{Binding DurationSeries}" 
                             XAxes="{Binding DurationXAxes}" 
                             Height="300" />
+
     
     </Border>
+        <Button Content="Export Chart to Image" HorizontalContentAlignment="Center" Command="{Binding ExportChartToImage}" Margin= "20" HorizontalAlignment="Right"/>
+ 
+   
     </Grid>
+    
 </UserControl>

@@ -1,5 +1,6 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LiveChartsCore;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.Drawing;
@@ -10,7 +11,8 @@ using System.Linq;
 using System.IO;
 using System.Text.Json;
 using System.Collections.ObjectModel;
-using LiveChartsCore.SkiaSharpView.Drawing;
+
+using LiveChartsCore.SkiaSharpView.SKCharts;
 
 namespace Assignment3.ViewModels;
 
@@ -22,6 +24,7 @@ public partial class ThirdViewModel: ObservableObject
     private List<Flights> Flights= new();
     public ISeries[] Series { get; set; }
     public Axis[] XAxes { get; set; }
+    
     public ISeries[] Series2 { get; set; }
     public Axis[] XAxes2 { get; set; }
     public Axis[] YAxes2 { get; set; }
@@ -78,8 +81,8 @@ public partial class ThirdViewModel: ObservableObject
         new Axis
         {
             Labels = topAirlines.Select(a => a.Name).ToArray(),
-            LabelsRotation = 25, // Para que se lean mejor si los nombres son largos
-          
+            LabelsRotation = 25, // To read better if the names are long //Para que se lean mejor si los nombres son largos
+
         }
         };
 
@@ -176,5 +179,20 @@ public partial class ThirdViewModel: ObservableObject
     };
 
     }
-   
+    [RelayCommand]
+    public void ExportChartToImage()
+    {
+        var chart = new SKCartesianChart
+        {
+            Series = Series,
+            XAxes = XAxes,
+            Width = 900,
+            Height = 600
+        };
+
+        using var image = chart.GetImage();
+        using var data = image.Encode(SKEncodedImageFormat.Png, 100);
+        using var stream = File.OpenWrite("ExportedChart.png");
+        data.SaveTo(stream);
+    }
 }
