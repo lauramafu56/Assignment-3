@@ -13,7 +13,7 @@ using System.Text.Json;
 using System.Collections.ObjectModel;
 
 using LiveChartsCore.SkiaSharpView.Drawing;
-using CommunityToolkit.Mvvm.Input;
+
 
 
 using LiveChartsCore.SkiaSharpView.SKCharts;
@@ -33,7 +33,6 @@ public partial class ThirdViewModel: ObservableObject
     public ISeries[] Series2 { get; set; }
     public Axis[] XAxes2 { get; set; }
     public Axis[] YAxes2 { get; set; }
-    private ISeries[] _pieSeries = Array.Empty<ISeries>();
     public ObservableCollection<ISeries> PieSeries { get; set; } = new();
     public ObservableCollection<ISeries> DurationSeries { get; set; } = new();
     public Axis[] DurationXAxes { get; set; }
@@ -43,16 +42,15 @@ public partial class ThirdViewModel: ObservableObject
     // --- PROPIEDADES DE VISIBILIDAD (Renombradas) ---
 
 [ObservableProperty]
-private bool _showSeries = true; // Antes: PlatformsChart (Gráfica de Aerolíneas)
+private bool _showSeries = true; // 
 
 [ObservableProperty]
-private bool _showSeries2 = true; // Antes: GenrePieChart (Gráfica de Ciudades)
+private bool _showSeries2 = true; // 
 
 [ObservableProperty]
-private bool _showPieSeries = true; // Antes: SubscriptionTypePieChart (Gráfica de Estados)
-
+private bool _showPieSeries = true; // 
 [ObservableProperty]
-private bool _showDurationSeries = false; // Para la gráfica del "Reto" de promedios
+private bool _showDurationSeries = false; //
 
 [ObservableProperty]
 private bool _showEmptyState;
@@ -71,17 +69,17 @@ private bool _showEmptyState;
                 chartsList.Add("Show All Charts");
             
             // Add individual hidden charts
-            if (HiddenCharts.Contains("Top Streaming Platforms by Usage"))
-                chartsList.Add("Top Streaming Platforms by Usage");
+            if (HiddenCharts.Contains("Top Airlines"))
+                chartsList.Add("Top Airlines");
                 
-            if (HiddenCharts.Contains("Most Streamed Music Genres"))
-                chartsList.Add("Most Streamed Music Genres");
+            if (HiddenCharts.Contains("Flights per City"))
+                chartsList.Add("Flights per City");
                 
-            if (HiddenCharts.Contains("Most Popular Subscription Type"))
-                chartsList.Add("Most Popular Subscription Type");
+            if (HiddenCharts.Contains("Flight Status"))
+                chartsList.Add("Flight Status");
                 
-            if (HiddenCharts.Contains("Minutes Streamed per day by Age"))
-                chartsList.Add("Minutes Streamed per day by Age");
+            if (HiddenCharts.Contains("Average Duration"))
+                chartsList.Add("Average Duration");
 
             if (HiddenCharts.Contains("Top Artists by Listeners"))
                 chartsList.Add("Top Artists by Listeners");
@@ -112,11 +110,7 @@ private bool _showEmptyState;
     }
 
     
-    [RelayCommand]
-    public void Show3chartsCommand()
-    {
-     
-    }
+ 
     [RelayCommand]
 public void RemoveChart(string chartId)
 {
@@ -174,7 +168,12 @@ public void AddChart(string chartName)
     
     // Quitamos la opción de la lista de "pendientes"
     HiddenCharts.Remove(chartName);
+      // Notificamos manualmente por si acaso
+    OnPropertyChanged(nameof(ShowDurationSeries));
     OnPropertyChanged(nameof(AvailableCharts));
+    
+  
+  
 }
 
     public ThirdViewModel()
@@ -309,6 +308,8 @@ public void AddChart(string chartName)
         new Axis { Labels = promedioPorDestino.Select(d => d.Destino).ToArray(),
         }
     };
+    HiddenCharts.Add("Average Duration"); 
+    OnPropertyChanged(nameof(AvailableCharts));
 
     }
 

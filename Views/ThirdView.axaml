@@ -8,15 +8,15 @@
              x:Class="Assignment3.Views.ThirdView"
              x:DataType="vm:ThirdViewModel" >
            
-<Grid RowDefinitions="Auto, *,Auto, *" ColumnDefinitions="*,*">
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Top 5 Airlines with more traffic volume"
-                   FontSize="15" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"/>
-      <TextBlock Grid.Row="0" Grid.Column="1" Text="Top 5 Cities with more traffic volume"
-                   FontSize="15" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"/>
-    <Border Grid.Row="1" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowSeries}">
-         <Grid ColumnDefinitions="*, Auto">
-        <lvc:CartesianChart Grid.Column="0" Series="{Binding Series}" Margin="20" XAxes="{Binding XAxes}"  AnimationsSpeed="00:00:01.000" ZoomMode="X"/>
-    <Button Grid.Column="1" Content="Remove" 
+<ScrollViewer VerticalScrollBarVisibility="Visible">
+    <Grid RowDefinitions="Auto, *,Auto, *, Auto" ColumnDefinitions="*,*">
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Top 5 Airlines with more traffic volume" FontSize="15" HorizontalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold"/>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="Top 5 Cities with more traffic volume" FontSize="15" HorizontalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold"/>
+           
+        <Border Grid.Row="1" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowSeries}">
+                 <Grid ColumnDefinitions="*, Auto">
+                    <lvc:CartesianChart Grid.Column="0" Series="{Binding Series}" Margin="20" XAxes="{Binding XAxes}"  AnimationsSpeed="00:00:01.000" ZoomMode="X"/>
+                    <Button Grid.Column="1" Content="Remove" 
                                 Width="80"
                                 Height="30"
                                 Padding="8,3"
@@ -28,12 +28,13 @@
                                 CommandParameter="Series"
                                 Foreground="Red"
                                 FontWeight="Bold"/>
-    </Grid>
-    </Border>
-    <Border Grid.Row="1" Grid.Column="1" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowSeries2}">
-         <Grid ColumnDefinitions="*, Auto">
-            <lvc:CartesianChart Grid.Column="0" Series="{Binding Series2}" Margin="20" XAxes="{Binding XAxes2}" YAxes="{Binding YAxes2}"/>
-         <Button Grid.Column="1" Content="Remove" 
+                 </Grid>
+        </Border>
+    
+        <Border Grid.Row="1" Grid.Column="1" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowSeries2}">
+            <Grid ColumnDefinitions="*, Auto">
+                <lvc:CartesianChart Grid.Column="0" Series="{Binding Series2}" Margin="20" XAxes="{Binding XAxes2}" YAxes="{Binding YAxes2}"/>
+                <Button Grid.Column="1" Content="Remove" 
                                 Width="80"
                                 Height="30"
                                 Padding="8,3"
@@ -45,14 +46,16 @@
                                 CommandParameter="Series2"
                                 Foreground="Red"
                                 FontWeight="Bold"/>
-        </Grid>
-    </Border>
-   <StackPanel Grid.Row="2">
-        <TextBlock Text="Flights status" FontSize="15" HorizontalAlignment="Center" Margin="10" FontWeight="Bold"/>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2">
+            <TextBlock Text="Flights status" FontSize="15" HorizontalAlignment="Center" Margin="0,20,0,0" FontWeight="Bold"/>
         </StackPanel>
-   <Border Grid.Row="3" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowPieSeries}">
-    <Grid ColumnDefinitions="*, Auto">
-     <lvc:PieChart     Grid.Column="0"       Series="{Binding PieSeries, Mode=OneWay}"
+
+        <Border Grid.Row="3" Grid.Column="0" Background="#F8F9FA" CornerRadius="8" Margin="10" IsVisible="{Binding ShowPieSeries}">
+            <Grid ColumnDefinitions="*, Auto">
+            <lvc:PieChart     Grid.Column="0"       Series="{Binding PieSeries, Mode=OneWay}"
                               LegendPosition="Right" 
                               InitialRotation="-90"
                               AnimationsSpeed="00:00:01.200"
@@ -65,34 +68,33 @@
                             </Transitions>
                         </lvc:PieChart.Transitions>
                     </lvc:PieChart>
-                    <Button Grid.Column="1" Content="Remove" 
-                                Width="80"
-                                Height="30"
-                                Padding="8,3"
-                                FontSize="14"
-                                HorizontalContentAlignment="Center"
-                                VerticalContentAlignment="Center"
-                                Margin="5,0,5,0"
-                                Command="{Binding RemoveChartCommand}" 
-                                CommandParameter="PieSeries"
-                                Foreground="Red"
-                                FontWeight="Bold"/>
-        </Grid>
-    </Border>
+                <Button Grid.Column="1" Content="Remove" 
+                            Width="80"
+                            Height="30"
+                            Padding="8,3"
+                            FontSize="14"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center"
+                            Margin="5,0,5,0"
+                            Command="{Binding RemoveChartCommand}" 
+                            CommandParameter="PieSeries"
+                            Foreground="Red"
+                            FontWeight="Bold"/>
+            </Grid>
+        </Border>
     
         <StackPanel Grid.Row="2" Grid.Column="1">
-        <TextBlock Text="Average by time of the Flight" 
-                HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
-         </StackPanel>
+            <TextBlock Text="Average by time of the Flight" HorizontalAlignment="Center" FontWeight="Bold" Margin="0,20,0,0"/>
+        </StackPanel>
+  
     <Border Grid.Row="3" Grid.Column="1" Background="#F8F9FA" CornerRadius="8" Margin="10" >
-   <Grid ColumnDefinitions="*, Auto">
+        <Grid ColumnDefinitions="*, Auto">
 
-        <lvc:CartesianChart Grid.Column="0" Series="{Binding DurationSeries}" 
-                            XAxes="{Binding DurationXAxes}" 
-                            Height="300"
-                            IsVisible="{Binding ShowDurationSeries}"/>
+            <lvc:CartesianChart Grid.Column="0" Series="{Binding DurationSeries}" XAxes="{Binding DurationXAxes}"  IsVisible="{Binding ShowDurationSeries}"/>
 
-                             <Button Grid.Column="1" Content="Add" 
+                <Grid Grid.Column="1" RowDefinitions="*,*">
+                            
+                    <Button Grid.Column="1" Grid.Row="0" Content="Add" 
                                 Width="80"
                                 Height="30"
                                 Padding="8,3"
@@ -101,15 +103,32 @@
                                 VerticalContentAlignment="Center"
                                 Margin="5,0,5,0"
                                 Command="{Binding AddChartCommand}" 
-                                CommandParameter="DurationSeries"
+                                CommandParameter="Average Duration"
+                                Foreground="#5E98AC"
+                                FontWeight="Bold"/>
+
+                    <Button Grid.Column="1" Grid.Row="1" Content="Remove" 
+                                Width="80"
+                                Height="30"
+                                Padding="8,3"
+                                FontSize="14"
+                                HorizontalContentAlignment="Center"
+                                VerticalContentAlignment="Center"
+                                Margin="5,0,5,0"
+                                Command="{Binding RemoveChartCommand}" 
+                                CommandParameter="Duration"
                                 Foreground="Red"
                                 FontWeight="Bold"/>
-              </Grid>              
-              
+                </Grid>
+        </Grid>              
+             
     </Border>
-        <Button Content="Export Chart to Image" HorizontalContentAlignment="Center" Command="{Binding ExportChartToImage}" Margin= "20" HorizontalAlignment="Right"/>
+  
+        <Button Grid.Column="1" Grid.Row="4" Content="Export Chart to Image" HorizontalContentAlignment="Center" Command="{Binding ExportChartToImage}" Margin= "20" HorizontalAlignment="Right"/>
  
    
     </Grid>
+</ScrollViewer>
+
     
 </UserControl>
